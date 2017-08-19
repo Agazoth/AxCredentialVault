@@ -18,6 +18,8 @@ Functionality:
     # Unblock the zip
     # Extract the AxCredentialVault folder to a module path (e.g. $env:USERPROFILE\Documents\WindowsPowerShell\Modules\)
 
+    #Simple alternative, if you have PowerShell 5, or the PowerShellGet module:
+        Install-Module AxCredentialVault
 
 # Import the module.
     Import-Module AxCredentialVault    #Alternatively, Import-Module \\Path\To\PSExcel
