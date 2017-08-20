@@ -1,7 +1,7 @@
 AxCredentialVault
 =================
 
-This module lest you create a Password Vault in your Azure subscription for safe keeping and delegation of your credential sets.
+This module lets you create a Password Vault in your Azure subscription for safe keeping and delegation of your credential sets.
 
 Functionality:
 * Create a new credential vault in your Azure subscription

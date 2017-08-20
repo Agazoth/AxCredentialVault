@@ -63,9 +63,7 @@ function New-AzureCredentialVault {
 
             try {
                 # Next command loads the Azure module. Pausing Verbose
-                $VerbosePreference = 'SilentlyContinue'
-                $ResourceGroup = Get-AzureRmResourceGroup $ResourceGroupName -ErrorAction stop
-                $VerbosePreference = $VPreference
+                $ResourceGroup = Get-AzureRmResourceGroup $ResourceGroupName -ErrorAction stop -Verbose SilentlyContinue
                 Write-Verbose "Found Resource Group: $($ResourceGroup.ResourceGroupName)"
             }
             catch {
@@ -109,12 +107,12 @@ function New-AzureCredentialVault {
            
             try {
                 $Table = Get-AzureStorageTable -Name $TableName -Context $StorageAccount.Context -ErrorAction Stop
-                Write-Verbose "Found table: $($Table.Name)"
+                Write-Verbose -Message "Found table: $($Table.Name)"
             }
             catch {
                 try {
                     New-AzureStorageTable -Name $TableName -Context $StorageAccount.Context -ErrorAction Stop | Out-Null
-                    Write-Verbose $TableName has been created in $StorageAccountName
+                    Write-Verbose -Message "$TableName has been created in $StorageAccountName"
                 }
                 catch {
                     Write-Warning -Message $_.Exception.Message
