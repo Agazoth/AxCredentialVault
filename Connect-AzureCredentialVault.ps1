@@ -108,7 +108,7 @@ function Connect-AzureCredentialVault {
     }
     
     process {
-        $Cmdlets = 'Get-AzureCredential','Set-AzureCredential','Remove-AzureCredential'
+        $Cmdlets = 'Get-AzureCredential','Set-AzureCredential','Remove-AzureCredential','Set-AzureCertificate','Get-AzureCertificate'
         $PSParameters = 'ResourceGroupName','StorageAccountName','VaultName','TableName','PartitionKey'
         Foreach ($Cmdlet in $Cmdlets)
         {

@@ -4,7 +4,7 @@ function Set-AzureCredential
     .Synopsis
         Add a credential set to Azure Vault
     .DESCRIPTION
-        Add a credential set to Azure Vault based on the guidelines in Test-VaultAccess
+        Add a credential set to Azure Vault. Run Connect-AzureCredentialVault prior to running this command.
     .EXAMPLE
         Set-AzureCredential -UserName Admin
        
@@ -46,7 +46,7 @@ function Set-AzureCredential
     [Alias()]
     Param
     (
-        # Param1 help description
+        # Username string 
         [Parameter(Mandatory=$true, Position=0)]
         $UserName,
 
