@@ -96,6 +96,11 @@ function New-AzureCredentialVault {
             }
             catch {
                 try {
+                    $isRegistered = Get-AzureRmResourceProvider -ProviderNamespace 'Microsoft.KeyVault'
+                    if ($isRegistered.RegistrationState -contains 'Unregistered') {
+                        Write-Verbose "Register Key Vault for your Subscription"
+                        Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.KeyVault" | Out-Null
+                    }
                     New-AzureRmKeyVault -ResourceGroupName $ResourceGroupName -VaultName $VaultName -Location $Location -ErrorAction Stop | Out-Null
                     Write-Verbose "$VaultName has been created in $ResourceGroupName"
                 }
