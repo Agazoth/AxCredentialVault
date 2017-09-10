@@ -92,6 +92,7 @@ function New-AzureCredentialVault {
             }
             try {
                 $KeyVault = Get-AzureRmKeyVault -ResourceGroupName $ResourceGroupName -VaultName $VaultName -ErrorAction Stop
+                if ($KeyVault -match $null){throw [System.IO.FileNotFoundException] "$VaultName not found."}
                 Write-Verbose "Found Key Vault: $($KeyVault.VaultName)"
             }
             catch {
